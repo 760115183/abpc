@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{34F7DE6F-5940-4336-A13A-18A633D239B5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Lis.PiYanSuoReport.Application</RootNamespace>
+    <AssemblyName>Lis.PiYanSuoReport.Application</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.3.3.0\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="JWT, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\JWT.2.4.2\lib\net35\JWT.dll</HintPath>
+    </Reference>
+    <Reference Include="MiniProfiler, Version=3.2.0.157, Culture=neutral, PublicKeyToken=b44f9351044011a3, processorArchitecture=MSIL">
+      <HintPath>..\packages\MiniProfiler.3.2.0.157\lib\net40\MiniProfiler.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Authentication\JWTHelper.cs" />
+    <Compile Include="Authentication\JWTInfo.cs" />
+    <Compile Include="BaoGao\BaoGaoAppService.cs" />
+    <Compile Include="BaoGao\Dto\PatientInfoDto.cs" />
+    <Compile Include="BaoGao\Dto\QueryBaoGaoDetailsInput.cs" />
+    <Compile Include="BaoGao\Dto\QueryBaoGaoInput.cs" />
+    <Compile Include="BaoGao\Dto\QueryPatientInfoInput.cs" />
+    <Compile Include="BaoGao\Dto\QueryYangBenXXDTO.cs" />
+    <Compile Include="BaoGao\Dto\QueryYangBenXXOutput.cs" />
+    <Compile Include="BaoGao\IBaoGaoAppService.cs" />
+    <Compile Include="Login\Dto\LoginModel.cs" />
+    <Compile Include="PiYanSuoReportApplicationModule.cs" />
+    <Compile Include="PiYanSuoReportAppServiceBase.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings\ISettingProvider.cs" />
+    <Compile Include="Settings\SettingKeys.cs" />
+    <Compile Include="Settings\SettingProvider.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AbpSource\Abp.AutoMapper\Abp.AutoMapper.csproj">
+      <Project>{7de4123a-d6d5-40ed-8a56-802631b86cca}</Project>
+      <Name>Abp.AutoMapper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AbpSource\Abp\Abp.csproj">
+      <Project>{433b9d3e-99b1-493d-b069-a7c1f14b34f5}</Project>
+      <Name>Abp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lis.PiYanSuoReport.Common\Lis.PiYanSuoReport.Common.csproj">
+      <Project>{9a7270d9-b9a3-41eb-8eb4-2077a30f69c8}</Project>
+      <Name>Lis.PiYanSuoReport.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lis.PiYanSuoReport.Core\Lis.PiYanSuoReport.Core.csproj">
+      <Project>{1CA917CD-CC02-4C2C-84F8-69F9E8389C31}</Project>
+      <Name>Lis.PiYanSuoReport.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lis.PiYanSuoReport.Dto\Lis.PiYanSuoReport.Dto.csproj">
+      <Project>{48ac59ae-ba4b-47f7-b528-536af5ac0121}</Project>
+      <Name>Lis.PiYanSuoReport.Dto</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
